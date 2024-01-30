@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="color.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="FNbig.png" />
+    <title>Vbucks gratuit </title>
+
+    <style>
+        #chatMessages {
+            max-height: 200px;
+            overflow-y: scroll;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        .message {
+            margin-bottom: 10px;
+        }
+
+        #typingBar {
+            margin-top: 10px;
+            display: flex;
+        }
+
+        #messageInput {
+            flex: 1;
+            padding: 5px;
+        }
+
+        #sendButton {
+            margin-left: 5px;
+            padding: 5px 10px;
+        }
+    </style>
+
+    <script>
+        function getRandomMessage() {
+            var messages = [
+                "Salut, comment ça va ?",
+                "J'ai trouvé un super plan pour obtenir des Vbucks gratuits !",
+                "Quel est ton skin préféré dans Fortnite ?",
+                "Regarde cette astuce pour gagner plus de parties !",
+                "Vive Fortnite !",
+                "J'ai entendu dire que la prochaine mise à jour sera géniale.",
+                "Les Vbucks, c'est la clé du succès dans Fortnite !",
+                "Quelle est ta saison préférée jusqu'à présent ?",
+                "Je suis tellement reconnaissant d'avoir découvert ce site ! J'ai obtenu les Vbucks dont j'avais besoin sans aucun problème. Merci beaucoup !",
+                "J'avais des doutes au début, mais après avoir suivi les étapes sur le site, j'ai reçu mes Vbucks gratuits en un instant. C'est incroyable !",
+                "Grâce à ce site, j'ai pu économiser de l'argent en obtenant mes Vbucks sans dépenser un sou. Une expérience vraiment géniale !",
+                "Les méthodes proposées sur ce site sont simples à suivre, et j'ai réussi à obtenir mes Vbucks gratuits rapidement. Je recommande fortement !",
+                "C'est le seul site qui a réellement fonctionné pour moi. Les Vbucks étaient dans mon compte en un rien de temps. Merci beaucoup !",
+                "Si vous cherchez un moyen fiable d'obtenir des Vbucks gratuits, ce site est la solution. J'en suis très satisfait !",
+                "Les témoignages étaient vrais ! J'ai suivi les étapes, et maintenant je n'ai plus à acheter de Vbucks. Une excellente trouvaille !",
+                "J'étais sceptique au début, mais après avoir essayé, je suis ravi d'avoir obtenu mes Vbucks sans aucun problème. Merci pour cette opportunité !",
+                "Le processus était simple, rapide, et j'ai reçu exactement ce qui était promis. Je recommande vivement ce site pour obtenir des Vbucks gratuits.",
+                "Je n'aurais jamais cru que cela fonctionnerait, mais j'ai réussi à obtenir les Vbucks dont j'avais besoin sans dépenser d'argent. Bravo pour ce service !"
+            ];
+
+            var randomIndex = Math.floor(Math.random() * messages.length);
+            return messages[randomIndex];
+        }
+
+        function getCurrentTime() {
+            var now = new Date();
+            var hours = now.getHours().toString().padStart(2, '0');
+            var minutes = now.getMinutes().toString().padStart(2, '0');
+            return hours + ':' + minutes;
+        }
+
+        function simulateChat() {
+            var chatMessages = document.getElementById("chatMessages");
+            var messageInput = document.getElementById("messageInput");
+            var sendButton = document.getElementById("sendButton");
+
+            sendButton.addEventListener("click", function() {
+                sendMessage(messageInput.value);
+            });
+
+            messageInput.addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    sendMessage(messageInput.value);
+                }
+            });
+
+            function sendMessage(message) {
+                if (message.trim() !== "") {
+                    var username = "Utilisateur" + Math.floor(Math.random() * 1000);
+                    var time = getCurrentTime();
+
+                    var messageDiv = document.createElement("div");
+                    messageDiv.className = "message";
+
+                    var usernameElement = document.createElement("strong");
+                    usernameElement.textContent = username;
+
+                    var messageElement = document.createElement("span");
+                    messageElement.textContent = ": " + message;
+
+                    var timeElement = document.createElement("span");
+                    timeElement.textContent = " (" + time + ")";
+
+                    messageDiv.appendChild(usernameElement);
+                    messageDiv.appendChild(messageElement);
+                    messageDiv.appendChild(timeElement);
+
+                    chatMessages.appendChild(messageDiv);
+
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+
+                    messageInput.value = "";
+                }
+            }
+
+            setInterval(function() {
+                var message = getRandomMessage();
+                var username = "Utilisateur" + Math.floor(Math.random() * 1000);
+                var time = getCurrentTime();
+
+                var messageDiv = document.createElement("div");
+                messageDiv.className = "message";
+
+                var usernameElement = document.createElement("strong");
+                usernameElement.textContent = username;
+
+                var messageElement = document.createElement("span");
+                messageElement.textContent = ": " + message;
+
+                var timeElement = document.createElement("span");
+                timeElement.textContent = " (" + time + ")";
+
+                messageDiv.appendChild(usernameElement);
+                messageDiv.appendChild(messageElement);
+                messageDiv.appendChild(timeElement);
+
+                chatMessages.appendChild(messageDiv);
+
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }, 3000);
+        }
+    </script>
+</head>
+<body onload="simulateChat()">
+    <h1>Clique sur l'icone Vbucks pour des Vbucks gratuits!!!</h1>
+    <img src="https://d266key948fg17.cloudfront.net/uploads/1668062940918dc02427c46568cc29fef4f0e6b41d.png">
+    <p>
+        <a href="https://gamer.hair/join.php?id=GXS39C">
+            <img src="vbucks.gif" alt="Vbucks" title="Vbucks gratuit !" id="V">
+        </a>
+    </p>
+    <div id="chatMessages"></div>
+    <div id="typingBar">
+        <input type="text" id="messageInput" placeholder="Tapez votre message...">
+        <button id="sendButton">Envoyer</button>
+    </div>
+	<p>	By Ramy </p>
+</body>
+</html>
